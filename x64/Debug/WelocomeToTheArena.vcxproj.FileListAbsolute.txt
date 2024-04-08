@@ -1,0 +1,2 @@
+C:\Users\Ryzen\OneDrive\Documentos\Programacion\WelocomeToTheArena\x64\Debug\WelocomeToTheArena.exe
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\x64\Debug\WelocomeToTheArena.exe
