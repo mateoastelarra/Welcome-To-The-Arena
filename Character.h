@@ -3,7 +3,14 @@
 class Character
 {
 public:
-	Character();
+	Character(std::string CharacterClass,
+			  std::string Race,
+			  int HitPoints,
+			  int Strength,
+			  int Armor,
+			  int Initiative,
+			  int Inteligence,
+			  int Level);
 
 protected:
 	std::string CharacterClass;
