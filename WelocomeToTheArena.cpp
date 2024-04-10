@@ -7,7 +7,7 @@
 int main()
 {
     std::cout << "Hello World!\n";
-    Character Player = Character("Warrior", "Elf", 10, 13, 17, 3, 10, 1);
+    Character Player = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
     Player.ShowStats();
 
 }

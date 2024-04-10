@@ -3,7 +3,8 @@
 class Character
 {
 public:
-	Character(std::string CharacterClass,
+	Character(std::string Name,
+			  std::string CharacterClass,
 			  std::string Race,
 			  int HitPoints,
 			  int Strength,
@@ -13,6 +14,7 @@ public:
 			  int Level);
 
 protected:
+	std::string Name;
 	std::string Class;
 	std::string Race;
 	int HitPoints;
@@ -25,6 +27,7 @@ protected:
 public:
 
 	//Getters
+	std::string const GetName() { return Name; }
 	std::string const GetClass() { return Class; }
 	std::string const GetRace() { return Race; }
 	int const GetHP() { return HitPoints; }
@@ -35,11 +38,11 @@ public:
 	int const GetLevel() { return Level; }
 
 	// Other methods
-	void Attack();
+	void Attack(Character* other);
 	void Defend();
 	void SpecialArt();
 	void Die();
-	void TakeDamage();
+	void TakeDamage(int damage);
 	void ShowStats();
 
 };
