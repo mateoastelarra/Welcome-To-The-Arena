@@ -2,10 +2,14 @@
 //
 
 #include <iostream>
+#include "Character.h""
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Character Player = Character("Warrior", "Elf", 10, 13, 17, 3, 10, 1);
+    Player.ShowStats();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
