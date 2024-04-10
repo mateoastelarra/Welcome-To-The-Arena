@@ -1,6 +1,5 @@
 #include "Character.h"
-
-
+#include <cmath>
 
 Character::Character(std::string Name,
 					 std::string CharacterClass, 
@@ -26,7 +25,7 @@ Character::Character(std::string Name,
 void Character::Attack(Character* other)
 {
 	int Damage = rand() % 20 + 1;
-	Damage = Damage + Strength - other->GetArmor();
+	Damage = fmax(Damage + Strength - other->GetArmor(), 0);
 	other->TakeDamage(Damage);
 }
 
@@ -40,14 +39,15 @@ void Character::SpecialArt()
 
 void Character::Die()
 {
-	std::cout << Name << "Is now Dead" << std::endl;
+	std::cout << Name << " Is now Dead" << std::endl;
 }
 
 void Character::TakeDamage(int damage)
 {
 	HitPoints -= damage;
-	if (HitPoints < 0)
+	if (HitPoints <= 0)
 	{
+		HitPoints = 0;
 		Die();
 	}
 }

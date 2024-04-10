@@ -6,9 +6,21 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
-    Character Player = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
-    Player.ShowStats();
+    /* initialize random seed: */
+    srand(time(NULL));
+    Character PlayerObject = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
+    Character* Player = &PlayerObject;
+
+    Character EnemyObject = Character("Miguel", "Palladin", "Dwarf", 10, 13, 17, 3, 10, 1);
+    Character* Enemy = &EnemyObject;
+    Player->ShowStats();
+    Enemy->ShowStats();
+
+    Player->Attack(Enemy);
+    Enemy->Attack(Player);
+
+    Player->ShowStats();
+    Enemy->ShowStats();
 
 }
 
