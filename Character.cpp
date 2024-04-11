@@ -6,8 +6,8 @@ Character::Character(std::string Name,
 					 std::string Race, 
 					 int HitPoints, 
 					 int Strength, 
-					 int Armor, 
-					 int Initiative, 
+					 int Armor,
+					 int BaseInitiative, 
 					 int Inteligence, 
 					 int Level)
 {
@@ -17,7 +17,8 @@ Character::Character(std::string Name,
 	this->HitPoints = HitPoints;
 	this->Strength = Strength;
 	this->Armor = Armor;
-	this->Initiative = Initiative;
+	this->BaseInitiative = Initiative;
+	this->Initiative = 0;
 	this->Inteligence = Inteligence;
 	this->Level = Level;
 }
@@ -68,7 +69,7 @@ void Character::ShowStats()
 	std::cout << "HitPoints: " << HitPoints << " - ";
 	std::cout << "Strength: " << Strength << " - ";
 	std::cout << "Armor: " << Armor << " - ";
-	std::cout << "Initiative: " << Initiative << " - ";
+	std::cout << "Initiative: " << BaseInitiative << " - ";
 	std::cout << "Inteligence: " << Inteligence << " - ";
 	std::cout << "Level: " << Level <<std::endl;
 }

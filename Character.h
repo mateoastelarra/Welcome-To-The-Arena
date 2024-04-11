@@ -9,7 +9,7 @@ public:
 			  int HitPoints,
 			  int Strength,
 			  int Armor,
-			  int Initiative,
+			  int BaseInitiative,
 			  int Inteligence,
 			  int Level);
 
@@ -20,6 +20,7 @@ protected:
 	int HitPoints;
 	int Strength;
 	int Armor;
+	int BaseInitiative;
 	int Initiative;
 	int Inteligence;
 	int Level;
@@ -33,9 +34,13 @@ public:
 	int const GetHP() { return HitPoints; }
 	int const GetStrength() { return Strength; }
 	int const GetArmor() { return Armor; }
+	int const GetBaseInitiative() { return BaseInitiative; }
 	int const GetInitiative() { return Initiative; }
 	int const GetInteligence() { return Inteligence; }
 	int const GetLevel() { return Level; }
+
+	// Setters
+	void SetInitiative(int initiative) { Initiative = initiative; }
 
 	// Other methods
 	void Attack(Character* other);
