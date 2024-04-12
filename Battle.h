@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <vector>
 
 class Character;
 
@@ -10,11 +11,13 @@ public:
 
 private:
 	int NumberOfEnemies;
-	std::list<Character*> Enemies;
+	class std::list<Character*> Enemies;
+	class std::vector<Character*> PlayerAndEnemies;
 	Character* Player;
 
 public:
 	void TakeTurn();
 	void DecideInitiative();
 	void DecideOrderForBattle();
+	void FillPlayerAndEnemiesVector();
 };

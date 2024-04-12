@@ -13,6 +13,7 @@ int main()
 
     Character EnemyObject = Character("Miguel", "Palladin", "Dwarf", 10, 13, 17, 3, 10, 1);
     Character* Enemy = &EnemyObject;
+    
     Player->ShowStats();
     Enemy->ShowStats();
 
