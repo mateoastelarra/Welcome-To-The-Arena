@@ -44,6 +44,7 @@ public:
 	int const GetInitiative() { return Initiative; }
 	int const GetInteligence() { return Inteligence; }
 	int const GetLevel() { return Level; }
+	bool const GetIsDead() { return IsDead; }
 
 	// Setters
 	void SetInitiative(int initiative) { Initiative = initiative; }
@@ -56,4 +57,6 @@ public:
 	void TakeDamage(int damage);
 	void ShowStats();
 
+private:
+	bool IsDead = false;
 };

@@ -2,6 +2,7 @@
 //
 #include <iostream>
 #include "Enemy.h"
+#include "Battle.h"
 
 int main()
 {
@@ -10,17 +11,11 @@ int main()
     Character PlayerObject = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
     Character* Player = &PlayerObject;
 
-    Character EnemyObject = Enemy(1);
-    Character* Enemy = &EnemyObject;
+    Battle BattleObject = Battle(1, 1, Player);
+    Battle* NewBattle = &BattleObject;
+    Player->ShowStats();
     
-    Player->ShowStats();
-    Enemy->ShowStats();
-
-    Player->Attack(Enemy);
-    Enemy->Attack(Player);
-
-    Player->ShowStats();
-    Enemy->ShowStats();
+    NewBattle->TakeTurn();
 
 }
 

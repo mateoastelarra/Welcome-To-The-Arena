@@ -29,6 +29,8 @@ Character::Character(std::string Name,
 
 void Character::Attack(Character* other)
 {
+	if (IsDead) { return; }
+
 	std::cout << Name << " attacks " << other->GetName() << ":" << std::endl;
 	int Damage = rand() % 20 + 1;
 	Damage = fmax(Damage + Strength - other->GetArmor(), 0);
@@ -55,6 +57,7 @@ void Character::SpecialArt()
 void Character::Die()
 {
 	std::cout << Name << " Is now Dead" << std::endl;
+	IsDead = true;
 }
 
 void Character::TakeDamage(int damage)

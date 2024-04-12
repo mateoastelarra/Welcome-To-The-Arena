@@ -7,15 +7,15 @@ class Character;
 class Battle
 {
 public:
-	Battle();
+	Battle(int numberOfEnemies, int level, Character* player);
 
 private:
-	int NumberOfEnemies;
 	std::list<Character*> Enemies;
 	std::vector<Character*> PlayerAndEnemies;
 	Character* Player;
 
 public:
+	void StartBattle();
 	void TakeTurn();
 	void DecideInitiative();
 	void DecideOrderForBattle();

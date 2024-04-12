@@ -1,9 +1,50 @@
 #include "Battle.h"
-#include "Character.h"
+#include "Enemy.h"
+#include <list>
+
+Battle::Battle(int numberOfEnemies, int level, Character* player)
+{
+	Player = player;
+	int Index = 0;
+	while (Index < numberOfEnemies)
+	{
+		Character EnemyObject = Enemy(level);
+		Character* Enemy = &EnemyObject;
+		Enemies.push_back(Enemy);
+		Index++;
+	}
+}
+
+void Battle::StartBattle()
+{
+}
 
 void Battle::TakeTurn()
 {
-
+	DecideInitiative();
+	FillPlayerAndEnemiesVector();
+	DecideOrderForBattle();
+	for (int i = 0; i < PlayerAndEnemies.size(); i++)
+	{
+		Character* ActiveCharacter = PlayerAndEnemies[i];
+		if (static_cast<Enemy*>(ActiveCharacter))
+		{
+			ActiveCharacter->Attack(Player);
+		}
+		else
+		{
+			int IndexToAttack = 0;
+			while (IndexToAttack != i)
+			{
+				IndexToAttack = rand() % PlayerAndEnemies.size();
+			}
+			ActiveCharacter->Attack(PlayerAndEnemies[IndexToAttack]);
+			if (PlayerAndEnemies[IndexToAttack]->GetIsDead())
+			{
+				Enemies.remove(PlayerAndEnemies[IndexToAttack]);
+			}
+		}
+	}
 }
 
 void Battle::DecideInitiative()
