@@ -1,9 +1,9 @@
 #include "Enemy.h"
 
-Enemy::Enemy(int level):Character()
+Enemy::Enemy(int level) :Character()
 {
 	Level = level;
-	Name = Name[rand() % Names.size()];
+	Name = Names[rand() % Names.size()];
 	Class = Classes[rand() % Classes.size()];
 	Race = Races[rand() % Races.size()];
 	HitPoints = BaseHitpoints + (rand() % 3 + 1) * level;

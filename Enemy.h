@@ -7,10 +7,10 @@ public:
 	Enemy(int level);
 
 private:
-	int BaseHitpoints = 5;
-	int BaseStrength;
-	int BaseArmor;
-	int BaseInteligence;
-	std::vector<std::string> Names = {"William", "Joe", "Argos", "Anna", "Julia", "Karen", "Michael", "Robert", "Walter", "Kate", "Leo", "Cristina"};
+	int BaseHitpoints = 10;
+	int BaseStrength = 10;
+	int BaseArmor = 10;
+	int BaseInteligence = 10;
+	std::vector<std::string> Names = { "William", "Joe", "Argos", "Anna", "Julia", "Karen", "Michael", "Robert", "Walter", "Kate", "Leo", "Cristina" };
 };
 

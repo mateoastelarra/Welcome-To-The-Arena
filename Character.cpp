@@ -32,7 +32,6 @@ void Character::Attack(Character* other)
 	std::cout << Name << " attacks " << other->GetName() << ":" << std::endl;
 	int Damage = rand() % 20 + 1;
 	Damage = fmax(Damage + Strength - other->GetArmor(), 0);
-	other->TakeDamage(Damage);
 
 	if (Damage > 0)
 	{
@@ -42,6 +41,7 @@ void Character::Attack(Character* other)
 	{
 		std::cout << "Misses the hit. " << other->GetName() << " Gets no Damage." << std::endl;
 	}
+	other->TakeDamage(Damage);
 }
 
 void Character::Defend()

@@ -1,8 +1,7 @@
 // WelocomeToTheArena.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
-#include "Character.h""
+#include "Enemy.h"
 
 int main()
 {
@@ -11,7 +10,7 @@ int main()
     Character PlayerObject = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
     Character* Player = &PlayerObject;
 
-    Character EnemyObject = Character("Miguel", "Palladin", "Dwarf", 10, 13, 17, 3, 10, 1);
+    Character EnemyObject = Enemy(1);
     Character* Enemy = &EnemyObject;
     
     Player->ShowStats();
