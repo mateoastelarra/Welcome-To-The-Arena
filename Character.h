@@ -1,10 +1,11 @@
 #include <iostream>
+#include <vector>
 
 class Character
 {
 public:
 	Character(std::string Name,
-			  std::string CharacterClass,
+			  std::string Class,
 			  std::string Race,
 			  int HitPoints,
 			  int Strength,
@@ -24,6 +25,9 @@ protected:
 	int Initiative;
 	int Inteligence;
 	int Level;
+
+	std::vector<std::string> Classes = { "Warrior", "Wizard", "Druid", "Palladin" };
+	std::vector<std::string> Races = { "Elf", "Human", "Dwarf", "Halfling", "Orc", "Goblin" };
 
 public:
 

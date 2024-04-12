@@ -11,8 +11,8 @@ public:
 
 private:
 	int NumberOfEnemies;
-	class std::list<Character*> Enemies;
-	class std::vector<Character*> PlayerAndEnemies;
+	std::list<Character*> Enemies;
+	std::vector<Character*> PlayerAndEnemies;
 	Character* Player;
 
 public:
