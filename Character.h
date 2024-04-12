@@ -4,6 +4,7 @@
 class Character
 {
 public:
+	Character();
 	Character(std::string Name,
 			  std::string Class,
 			  std::string Race,

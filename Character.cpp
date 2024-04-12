@@ -1,6 +1,10 @@
 #include "Character.h"
 #include <cmath>
 
+Character::Character()
+{
+}
+
 Character::Character(std::string Name,
 					 std::string CharacterClass, 
 					 std::string Race, 
