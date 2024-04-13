@@ -2,20 +2,29 @@
 #include "Enemy.h"
 #include <list>
 
-Battle::Battle(int numberOfEnemies, int level, Character* player, Enemy* enemy)
+Battle::Battle(int numberOfEnemies, int level, Character* player)
 {
 	Player = player;
 	int Index = 0;
-	AuxEnemy = enemy;
 	while (Index < numberOfEnemies)
 	{
-		Enemies.push_back(AuxEnemy);
+		Enemy* enemyToAdd = new Enemy(1);
+		Enemies.push_back(enemyToAdd);
 		Index++;
+	}
+	StartBattle();
+}
+
+Battle::~Battle()
+{
+	for (Character* character : Enemies) {
+		delete character;
 	}
 }
 
 void Battle::StartBattle()
 {
+	
 }
 
 void Battle::TakeTurn()
@@ -27,9 +36,8 @@ void Battle::TakeTurn()
 	for (int i = 0; i < PlayerAndEnemies.size(); i++)
 	{
 		ActiveCharacter = PlayerAndEnemies[i];
-		if (ActiveCharacter == AuxEnemy)
+		if (dynamic_cast<Enemy*>(ActiveCharacter))
 		{
-			std::cout << "if" << std::endl;
 			ActiveCharacter->Attack(Player);
 		}
 		else

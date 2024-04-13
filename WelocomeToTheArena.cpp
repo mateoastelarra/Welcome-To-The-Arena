@@ -8,24 +8,16 @@ int main()
 {
     /* initialize random seed: */
     srand(time(NULL));
-    Character PlayerObject = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
-    Character* PlayerPtr = &PlayerObject;
+    Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
+    Battle* NewBattle = new Battle(3, 1, PlayerPtr);
+    
+    NewBattle->TakeTurn();
 
-    Enemy EnemyObject = Enemy(1);
-    Enemy* enemy = &EnemyObject;
+    // Deallocate memory for dynamically allocated objects
+    delete PlayerPtr;
+    delete NewBattle;
 
-    //std::cout << enemy->GetName() << std::endl;
-
-    Battle BattleObject = Battle(1, 1, PlayerPtr, enemy);
-    //Battle* NewBattle = &BattleObject;
-    //PlayerPtr->ShowStats();
-    Enemy EnemyAux = Enemy(1);
-    //PlayerPtr->Attack(&EnemyAux);
-    //EnemyAux.Attack(PlayerPtr);
-    //BattleObject.ShowEnemies();
-    //BattleObject.AuxEnemy->ShowStats();
-    BattleObject.TakeTurn();
-
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

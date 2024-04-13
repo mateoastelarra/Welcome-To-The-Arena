@@ -8,8 +8,8 @@ class Enemy;
 class Battle
 {
 public:
-	Battle(int numberOfEnemies, int level, Character* player, Enemy* enemy);
-
+	Battle(int numberOfEnemies, int level, Character* player);
+	~Battle();
 private:
 	std::list<Character*> Enemies;
 	std::list<Enemy*> RealEnemies;

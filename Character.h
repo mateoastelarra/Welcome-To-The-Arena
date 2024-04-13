@@ -15,6 +15,7 @@ public:
 			  int BaseInitiative,
 			  int Inteligence,
 			  int Level);
+	virtual ~Character() {}
 
 protected:
 	std::string Name;
