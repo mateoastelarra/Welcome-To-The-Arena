@@ -15,10 +15,13 @@ private:
 	std::vector<Character*> PlayerAndEnemies;
 	Character* Player;
 
+	// Time between each character turn
+	int WaitTime = 2;
+
 public:
 	void StartBattle();
 	void EndBattle();
-	void TakeTurn();
+	void TakeRound();
 	void DecideInitiative();
 	void DecideOrderForBattle();
 	void FillPlayerAndEnemiesVector();

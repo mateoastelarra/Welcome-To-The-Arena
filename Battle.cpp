@@ -1,6 +1,9 @@
 #include "Battle.h"
 #include "Enemy.h"
+#include <iostream>
 #include <list>
+#include <chrono>
+#include <thread>
 
 Battle::Battle(int numberOfEnemies, int level, Character* player)
 {
@@ -25,12 +28,14 @@ Battle::~Battle()
 void Battle::StartBattle()
 {
 	FillPlayerAndEnemiesVector();
-	int turn = 1;
+	int round = 1;
 	while (Enemies.size() > 0 && !Player->GetIsDead())
 	{
-		std::cout << "Turn " << turn << " starts:" << std::endl;
-		TakeTurn();
-		turn++;
+		std::cout << "Press any key to start the next round: " << std::endl;
+		std::cout << "Round" << round << " starts:" << std::endl;
+		std::this_thread::sleep_for(std::chrono::seconds(WaitTime));
+		TakeRound();
+		round++;
 	}
 	EndBattle();
 }
@@ -47,7 +52,7 @@ void Battle::EndBattle()
 	}
 }
 
-void Battle::TakeTurn()
+void Battle::TakeRound()
 {
 	DecideInitiative();
 	DecideOrderForBattle();
@@ -74,6 +79,7 @@ void Battle::TakeTurn()
 				AnEnemyDied = true;	
 			}
 		}
+		std::this_thread::sleep_for(std::chrono::seconds(WaitTime));
 	}
 	if (AnEnemyDied)
 	{

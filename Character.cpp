@@ -1,6 +1,7 @@
 #include "Character.h"
 #include <cmath>
 
+
 Character::Character()
 {
 }
