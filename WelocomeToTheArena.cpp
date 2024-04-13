@@ -9,13 +9,22 @@ int main()
     /* initialize random seed: */
     srand(time(NULL));
     Character PlayerObject = Character("Juan", "Warrior", "Elf", 10, 13, 17, 3, 10, 1);
-    Character* Player = &PlayerObject;
+    Character* PlayerPtr = &PlayerObject;
 
-    Battle BattleObject = Battle(1, 1, Player);
-    Battle* NewBattle = &BattleObject;
-    Player->ShowStats();
-    
-    NewBattle->TakeTurn();
+    Enemy EnemyObject = Enemy(1);
+    Enemy* enemy = &EnemyObject;
+
+    //std::cout << enemy->GetName() << std::endl;
+
+    Battle BattleObject = Battle(1, 1, PlayerPtr, enemy);
+    //Battle* NewBattle = &BattleObject;
+    //PlayerPtr->ShowStats();
+    Enemy EnemyAux = Enemy(1);
+    //PlayerPtr->Attack(&EnemyAux);
+    //EnemyAux.Attack(PlayerPtr);
+    //BattleObject.ShowEnemies();
+    //BattleObject.AuxEnemy->ShowStats();
+    BattleObject.TakeTurn();
 
 }
 

@@ -21,15 +21,15 @@ Character::Character(std::string Name,
 	this->HitPoints = HitPoints;
 	this->Strength = Strength;
 	this->Armor = Armor;
-	this->BaseInitiative = Initiative;
 	this->Initiative = 0;
+	this->BaseInitiative = Initiative;
 	this->Inteligence = Inteligence;
 	this->Level = Level;
 }
 
 void Character::Attack(Character* other)
 {
-	if (IsDead) { return; }
+	if (IsDead or other->GetIsDead()) { return; }
 
 	std::cout << Name << " attacks " << other->GetName() << ":" << std::endl;
 	int Damage = rand() % 20 + 1;
@@ -70,9 +70,9 @@ void Character::TakeDamage(int damage)
 	}
 }
 
-void Character::ShowStats()
+void const Character::ShowStats()
 {
-	std::cout << Name << " is an " << Race << " " << Class << " With these stats:" << std::endl;
+	std::cout << Name << " is a " << Race << " " << Class << " with these stats:" << std::endl;
 	std::cout << "HitPoints: " << HitPoints << " - ";
 	std::cout << "Strength: " << Strength << " - ";
 	std::cout << "Armor: " << Armor << " - ";

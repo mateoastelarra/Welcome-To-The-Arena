@@ -2,15 +2,14 @@
 #include "Enemy.h"
 #include <list>
 
-Battle::Battle(int numberOfEnemies, int level, Character* player)
+Battle::Battle(int numberOfEnemies, int level, Character* player, Enemy* enemy)
 {
 	Player = player;
 	int Index = 0;
+	AuxEnemy = enemy;
 	while (Index < numberOfEnemies)
 	{
-		Character EnemyObject = Enemy(level);
-		Character* Enemy = &EnemyObject;
-		Enemies.push_back(Enemy);
+		Enemies.push_back(AuxEnemy);
 		Index++;
 	}
 }
@@ -24,17 +23,19 @@ void Battle::TakeTurn()
 	DecideInitiative();
 	FillPlayerAndEnemiesVector();
 	DecideOrderForBattle();
+	Character* ActiveCharacter;
 	for (int i = 0; i < PlayerAndEnemies.size(); i++)
 	{
-		Character* ActiveCharacter = PlayerAndEnemies[i];
-		if (static_cast<Enemy*>(ActiveCharacter))
+		ActiveCharacter = PlayerAndEnemies[i];
+		if (ActiveCharacter == AuxEnemy)
 		{
+			std::cout << "if" << std::endl;
 			ActiveCharacter->Attack(Player);
 		}
 		else
 		{
 			int IndexToAttack = 0;
-			while (IndexToAttack != i)
+			while (IndexToAttack == i)
 			{
 				IndexToAttack = rand() % PlayerAndEnemies.size();
 			}
@@ -92,4 +93,9 @@ void Battle::FillPlayerAndEnemiesVector()
 	{
 		PlayerAndEnemies.push_back(Character);
 	}
+}
+
+void Battle::ShowEnemies()
+{
+
 }

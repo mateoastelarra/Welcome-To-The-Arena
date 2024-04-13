@@ -28,8 +28,8 @@ protected:
 	int Inteligence;
 	int Level;
 
-	std::vector<std::string> Classes = { "Warrior", "Wizard", "Druid", "Palladin" };
-	std::vector<std::string> Races = { "Elf", "Human", "Dwarf", "Halfling", "Orc", "Goblin" };
+	const std::vector<std::string> Classes = { "Warrior", "Wizard", "Druid", "Palladin" };
+	const std::vector<std::string> Races = { "Elf", "Human", "Dwarf", "Halfling", "Orc", "Goblin" };
 
 public:
 
@@ -55,7 +55,7 @@ public:
 	void SpecialArt();
 	void Die();
 	void TakeDamage(int damage);
-	void ShowStats();
+	void const ShowStats();
 
 private:
 	bool IsDead = false;

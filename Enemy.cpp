@@ -1,9 +1,11 @@
 #include "Enemy.h"
 
-Enemy::Enemy(int level) :Character()
+const std::vector<std::string> Enemy::Names = { "William", "Joe", "Argos", "Anna", "Julia", "Karen", "Michael", "Robert", "Walter", "Kate", "Leo", "Cristina" };
+
+Enemy::Enemy(int level) : Character()
 {
 	Level = level;
-	Name = Names[rand() % Names.size()];
+	Name = Enemy::Names[rand() % Names.size()];
 	Class = Classes[rand() % Classes.size()];
 	Race = Races[rand() % Races.size()];
 	HitPoints = BaseHitpoints + (rand() % 3 + 1) * level;

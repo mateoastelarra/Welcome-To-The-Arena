@@ -1,2 +1,3 @@
-﻿  Battle.cpp
+﻿  Character.cpp
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Character.cpp(36,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   WelocomeToTheArena.vcxproj -> C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\x64\Debug\WelocomeToTheArena.exe
