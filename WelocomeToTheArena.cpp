@@ -9,9 +9,7 @@ int main()
     /* initialize random seed: */
     srand(time(NULL));
     Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
-    Battle* NewBattle = new Battle(3, 1, PlayerPtr);
-    
-    NewBattle->TakeTurn();
+    Battle* NewBattle = new Battle(2, 1, PlayerPtr);
 
     // Deallocate memory for dynamically allocated objects
     delete PlayerPtr;

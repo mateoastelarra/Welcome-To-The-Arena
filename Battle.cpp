@@ -24,15 +24,35 @@ Battle::~Battle()
 
 void Battle::StartBattle()
 {
-	
+	FillPlayerAndEnemiesVector();
+	int turn = 1;
+	while (Enemies.size() > 0 && !Player->GetIsDead())
+	{
+		std::cout << "Turn " << turn << " starts:" << std::endl;
+		TakeTurn();
+		turn++;
+	}
+	EndBattle();
+}
+
+void Battle::EndBattle()
+{
+	if (Player->GetIsDead())
+	{
+		std::cout << "GAME OVER" << std::endl;
+	}
+	else
+	{
+		std::cout << "YOU DEFEATED YOUR ENEMIES." << std::endl;
+	}
 }
 
 void Battle::TakeTurn()
 {
 	DecideInitiative();
-	FillPlayerAndEnemiesVector();
 	DecideOrderForBattle();
 	Character* ActiveCharacter;
+	bool AnEnemyDied = false;
 	for (int i = 0; i < PlayerAndEnemies.size(); i++)
 	{
 		ActiveCharacter = PlayerAndEnemies[i];
@@ -51,8 +71,14 @@ void Battle::TakeTurn()
 			if (PlayerAndEnemies[IndexToAttack]->GetIsDead())
 			{
 				Enemies.remove(PlayerAndEnemies[IndexToAttack]);
+				AnEnemyDied = true;	
 			}
 		}
+	}
+	if (AnEnemyDied)
+	{
+		PlayerAndEnemies.clear();
+		FillPlayerAndEnemiesVector();
 	}
 }
 

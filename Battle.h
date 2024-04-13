@@ -12,13 +12,12 @@ public:
 	~Battle();
 private:
 	std::list<Character*> Enemies;
-	std::list<Enemy*> RealEnemies;
 	std::vector<Character*> PlayerAndEnemies;
 	Character* Player;
 
 public:
-	Enemy* AuxEnemy;
 	void StartBattle();
+	void EndBattle();
 	void TakeTurn();
 	void DecideInitiative();
 	void DecideOrderForBattle();
