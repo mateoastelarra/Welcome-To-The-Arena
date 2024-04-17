@@ -1,6 +1,4 @@
 ﻿  Battle.cpp
-  Character.cpp
-C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Character.cpp(37,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Enemy.cpp
   Helpers.cpp
   Player.cpp
