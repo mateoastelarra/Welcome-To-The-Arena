@@ -2,8 +2,7 @@
 #include "Enemy.h"
 #include <iostream>
 #include <list>
-#include <chrono>
-#include <thread>
+#include "Helpers.h"
 
 Battle::Battle(int numberOfEnemies, int level, Character* player)
 {
@@ -31,9 +30,16 @@ void Battle::StartBattle()
 	int round = 1;
 	while (Enemies.size() > 0 && !Player->GetIsDead())
 	{
-		std::cout << "Press any key to start the next round: " << std::endl;
-		std::cout << "Round" << round << " starts:" << std::endl;
-		std::this_thread::sleep_for(std::chrono::seconds(WaitTime));
+		if (round == 1)
+		{
+			Helpers::WaitForPlayerResponse("to start the battle.");
+		}
+		else
+		{
+			Helpers::WaitForPlayerResponse("for next round.");
+		}	
+		std::cout << "Round " << round << " starts:" << std::endl;
+		Helpers::WaitForSeconds(WaitTime);
 		TakeRound();
 		round++;
 	}
@@ -79,7 +85,7 @@ void Battle::TakeRound()
 				AnEnemyDied = true;	
 			}
 		}
-		std::this_thread::sleep_for(std::chrono::seconds(WaitTime));
+		Helpers::WaitForSeconds(WaitTime);
 	}
 	if (AnEnemyDied)
 	{
