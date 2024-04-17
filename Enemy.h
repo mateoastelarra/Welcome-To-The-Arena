@@ -11,5 +11,4 @@ private:
 	int BaseStrength = 10;
 	int BaseArmor = 10;
 	int BaseInteligence = 10;
-	static const std::vector<std::string> Names;
 };

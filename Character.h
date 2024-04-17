@@ -29,9 +29,6 @@ protected:
 	int Inteligence;
 	int Level;
 
-	const std::vector<std::string> Classes = { "Warrior", "Wizard", "Druid", "Palladin" };
-	const std::vector<std::string> Races = { "Elf", "Human", "Dwarf", "Halfling", "Orc", "Goblin" };
-
 public:
 
 	//Getters

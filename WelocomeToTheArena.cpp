@@ -1,14 +1,16 @@
 // WelocomeToTheArena.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
-#include "Enemy.h"
+//#include "Enemy.h"
 #include "Battle.h"
+#include "Player.h"
 
 int main()
 {
     /* initialize random seed: */
     srand(time(NULL));
-    Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
+    //Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
+    Player* PlayerPtr = new Player();
     Battle* NewBattle = new Battle(2, 1, PlayerPtr);
 
     // Deallocate memory for dynamically allocated objects
