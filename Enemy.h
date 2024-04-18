@@ -7,8 +7,5 @@ public:
 	Enemy(int level);
 
 private:
-	int BaseHitpoints = 10;
-	int BaseStrength = 10;
-	int BaseArmor = 10;
-	int BaseInteligence = 10;
+	
 };

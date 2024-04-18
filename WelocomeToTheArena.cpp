@@ -4,18 +4,30 @@
 //#include "Enemy.h"
 #include "Battle.h"
 #include "Player.h"
+#include "Helpers.h"
 
 int main()
 {
     /* initialize random seed: */
     srand(time(NULL));
     //Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
-    Player* PlayerPtr = new Player();
-    Battle* NewBattle = new Battle(2, 1, PlayerPtr);
+    Player* PlayerPtr = new Player(1);
+    Battle* NewBattle = nullptr;
+    int NumberOfEnemies = 1;
 
+    while (PlayerPtr->GetIsDead() == false)
+    {
+       std::cout << "Battle number " << NumberOfEnemies << std::endl;
+       NewBattle = new Battle(NumberOfEnemies, 1, PlayerPtr);
+       NumberOfEnemies++;
+    }
+    
     // Deallocate memory for dynamically allocated objects
     delete PlayerPtr;
-    delete NewBattle;
+    if (NewBattle != nullptr)
+    {
+        delete NewBattle;
+    }
 
     return 0;
 }

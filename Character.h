@@ -29,6 +29,13 @@ protected:
 	int Inteligence;
 	int Level;
 
+	int BaseHitpoints = 10;
+	int BaseStrength = 10;
+	int BaseArmor = 10;
+	int BaseInteligence = 10;
+
+	void SetBaseStatsByClass(std::string AClass);
+
 public:
 
 	//Getters

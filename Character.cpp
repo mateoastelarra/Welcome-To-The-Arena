@@ -81,3 +81,35 @@ void const Character::ShowStats()
 	std::cout << "Inteligence: " << Inteligence << " - ";
 	std::cout << "Level: " << Level <<std::endl;
 }
+
+void Character::SetBaseStatsByClass(std::string AClass)
+{
+	if (AClass == "Warrior")
+	{
+		BaseHitpoints = 13;
+		BaseStrength = 12;
+		BaseArmor = 10;
+		BaseInteligence = 2;
+	}
+	else if (AClass == "Wizard")
+	{
+		BaseHitpoints = 9;
+		BaseStrength = 8;
+		BaseArmor = 9;
+		BaseInteligence = 16;
+	}
+	else if (AClass == "Druid")
+	{
+		BaseHitpoints = 12;
+		BaseStrength = 11;
+		BaseArmor = 12;
+		BaseInteligence = 7;
+	}
+	else if (AClass == "Palladin")
+	{
+		BaseHitpoints = 10;
+		BaseStrength = 10;
+		BaseArmor = 12;
+		BaseInteligence = 10;
+	}
+}

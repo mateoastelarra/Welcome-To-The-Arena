@@ -7,6 +7,8 @@ Enemy::Enemy(int level) : Character()
 	Name = Helpers::Names[rand() % Helpers::Names.size()];
 	Class = Helpers::Classes[rand() % Helpers::Classes.size()];
 	Race = Helpers::Races[rand() % Helpers::Races.size()];
+
+	SetBaseStatsByClass(Class);
 	HitPoints = BaseHitpoints + (rand() % 3 + 1) * level;
 	Strength = BaseStrength + (rand() % 3 + 1) * level;
 	Armor = BaseArmor + (rand() % 3 + 1) * level;
