@@ -10,7 +10,7 @@ int main()
 {
     /* initialize random seed: */
     srand(time(NULL));
-    //Character* PlayerPtr = new Character("Juan", "Warrior", "Elf", 30, 13, 17, 3, 10, 1);
+    
     Player* PlayerPtr = new Player(1);
     Battle* NewBattle = nullptr;
     int NumberOfEnemies = 1;
@@ -20,6 +20,10 @@ int main()
        std::cout << "Battle number " << NumberOfEnemies << std::endl;
        NewBattle = new Battle(NumberOfEnemies, 1, PlayerPtr);
        NumberOfEnemies++;
+       if (PlayerPtr->GetIsDead() == false)
+       {
+           PlayerPtr->ImprovePlayer();
+       }
     }
     
     // Deallocate memory for dynamically allocated objects

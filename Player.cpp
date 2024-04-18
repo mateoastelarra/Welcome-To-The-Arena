@@ -19,6 +19,33 @@ Player::Player(int level) : Character()
 
 }
 
+void Player::ImprovePlayer()
+{
+    while (true)
+    {
+        std::cout << "The Battle is over, what do you want to Improve?" << std::endl;
+        std::vector<std::string> Options = { "Hitpoints", "Strength", "Armor", "Inteligence", "Initiative" };
+        std::vector<int*> Stats = { &HitPoints, &Strength, &Armor, &Inteligence, &BaseInitiative };
+        for (int i = 0; i < Options.size(); i++)
+        {
+            std::cout << i + 1 << ")" << Options[i] << ". Current = " << *Stats[i] <<  std::endl;
+        }
+        int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code
+
+        if (ChosenItemIndex >= 0 && ChosenItemIndex < Options.size())
+        {
+            *Stats[ChosenItemIndex] += (rand() % 4 + 1);
+            std::cout << "Congrats!!" << std::endl;
+            std::cout << "Your " << Options[ChosenItemIndex] << " is now " << *Stats[ChosenItemIndex] << std::endl;
+            return;
+        }
+        else
+        {
+            std::cout << "Please choose a valid option " << Name << std::endl;
+        }
+    }
+}
+
 std::string Player::ChooseCharacteristic(std::vector<std::string> Charasteristics, std::string Characteristic)
 {
     while (true)

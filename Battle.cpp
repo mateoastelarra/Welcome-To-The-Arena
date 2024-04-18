@@ -55,6 +55,7 @@ void Battle::EndBattle()
 	else
 	{
 		std::cout << "YOU DEFEATED YOUR ENEMIES." << std::endl;
+		Helpers::WaitForSeconds(WaitTime);
 	}
 }
 

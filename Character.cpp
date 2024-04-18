@@ -57,7 +57,7 @@ void Character::SpecialArt()
 
 void Character::Die()
 {
-	std::cout << Name << " the " << Class << " Is now Dead" << std::endl;
+	std::cout << Name << " the " << Race << " Is now Dead" << std::endl;
 	IsDead = true;
 }
 
