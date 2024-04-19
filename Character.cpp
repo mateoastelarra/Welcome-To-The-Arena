@@ -6,28 +6,6 @@ Character::Character()
 {
 }
 
-Character::Character(std::string Name,
-					 std::string CharacterClass, 
-					 std::string Race, 
-					 int HitPoints, 
-					 int Strength, 
-					 int Armor,
-					 int BaseInitiative, 
-					 int Inteligence, 
-					 int Level)
-{
-	this->Name = Name;
-	this->Class = CharacterClass;
-	this->Race = Race;
-	this->HitPoints = HitPoints;
-	this->Strength = Strength;
-	this->Armor = Armor;
-	this->Initiative = 0;
-	this->BaseInitiative = Initiative;
-	this->Inteligence = Inteligence;
-	this->Level = Level;
-}
-
 void Character::Attack(Character* other)
 {
 	if (IsDead or other->GetIsDead()) { return; }

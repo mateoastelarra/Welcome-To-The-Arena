@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,15 +7,6 @@ class Character
 {
 public:
 	Character();
-	Character(std::string Name,
-			  std::string Class,
-			  std::string Race,
-			  int HitPoints,
-			  int Strength,
-			  int Armor,
-			  int BaseInitiative,
-			  int Inteligence,
-			  int Level);
 	virtual ~Character() {}
 
 protected:

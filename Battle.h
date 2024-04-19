@@ -1,9 +1,10 @@
+#pragma once
 #include <iostream>
 #include <list>
 #include <vector>
 
 class Character;
-class Enemy;
+//class Enemy;
 
 class Battle
 {
@@ -13,7 +14,7 @@ public:
 private:
 	std::list<Character*> Enemies;
 	std::vector<Character*> PlayerAndEnemies;
-	Character* Player;
+	class Player* CurrentPlayer;
 
 	// Time between each character turn
 	int WaitTime = 2;

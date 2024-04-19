@@ -20,10 +20,6 @@ int main()
        std::cout << "Battle number " << NumberOfEnemies << std::endl;
        NewBattle = new Battle(NumberOfEnemies, 1, PlayerPtr);
        NumberOfEnemies++;
-       if (PlayerPtr->GetIsDead() == false)
-       {
-           PlayerPtr->ImprovePlayer();
-       }
     }
     
     // Deallocate memory for dynamically allocated objects

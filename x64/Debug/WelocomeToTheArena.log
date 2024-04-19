@@ -1,2 +1,5 @@
 ﻿  Battle.cpp
+  WelocomeToTheArena.cpp
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\WelocomeToTheArena.cpp(12,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   WelocomeToTheArena.vcxproj -> C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\x64\Debug\WelocomeToTheArena.exe

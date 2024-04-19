@@ -1,12 +1,13 @@
 #include "Battle.h"
 #include "Enemy.h"
+#include "Player.h"
 #include <iostream>
 #include <list>
 #include "Helpers.h"
 
 Battle::Battle(int numberOfEnemies, int level, Character* player)
 {
-	Player = player;
+	CurrentPlayer = dynamic_cast<Player*>(player);
 	int Index = 0;
 	while (Index < numberOfEnemies)
 	{
@@ -28,7 +29,7 @@ void Battle::StartBattle()
 {
 	FillPlayerAndEnemiesVector();
 	int round = 1;
-	while (Enemies.size() > 0 && !Player->GetIsDead())
+	while (Enemies.size() > 0 && !CurrentPlayer->GetIsDead())
 	{
 		if (round == 1)
 		{
@@ -48,7 +49,7 @@ void Battle::StartBattle()
 
 void Battle::EndBattle()
 {
-	if (Player->GetIsDead())
+	if (CurrentPlayer->GetIsDead())
 	{
 		std::cout << "GAME OVER" << std::endl;
 	}
@@ -56,6 +57,7 @@ void Battle::EndBattle()
 	{
 		std::cout << "YOU DEFEATED YOUR ENEMIES." << std::endl;
 		Helpers::WaitForSeconds(WaitTime);
+		CurrentPlayer->ImprovePlayer();
 	}
 }
 
@@ -70,7 +72,7 @@ void Battle::TakeRound()
 		ActiveCharacter = PlayerAndEnemies[i];
 		if (dynamic_cast<Enemy*>(ActiveCharacter))
 		{
-			ActiveCharacter->Attack(Player);
+			ActiveCharacter->Attack(CurrentPlayer);
 		}
 		else
 		{
@@ -99,16 +101,16 @@ void Battle::DecideInitiative()
 {
 	// Set initiative for enemies
 	int NewInitiative = rand() % 20 + 1;
-	for (Character* Character : Enemies)
+	for (Character* character : Enemies)
 	{
-		NewInitiative = NewInitiative + Character->GetBaseInitiative();
-		Character->SetInitiative(NewInitiative);
+		NewInitiative = NewInitiative + character->GetBaseInitiative();
+		character->SetInitiative(NewInitiative);
 		NewInitiative = rand() % 20 + 1;
 	}
 
 	// Set initiative for player
-	NewInitiative = NewInitiative + Player->GetBaseInitiative();
-	Player->SetInitiative(NewInitiative);
+	NewInitiative = NewInitiative + CurrentPlayer->GetBaseInitiative();
+	CurrentPlayer->SetInitiative(NewInitiative);
 }
 
 void Battle::DecideOrderForBattle()
@@ -135,10 +137,10 @@ void Battle::DecideOrderForBattle()
 
 void Battle::FillPlayerAndEnemiesVector()
 {
-	PlayerAndEnemies.push_back(Player);
-	for (Character* Character : Enemies)
+	PlayerAndEnemies.push_back(CurrentPlayer);
+	for (Character* character : Enemies)
 	{
-		PlayerAndEnemies.push_back(Character);
+		PlayerAndEnemies.push_back(character);
 	}
 }
 
@@ -146,3 +148,4 @@ void Battle::ShowEnemies()
 {
 
 }
+
