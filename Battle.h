@@ -4,17 +4,18 @@
 #include <vector>
 
 class Character;
+class Player;
 //class Enemy;
 
 class Battle
 {
 public:
-	Battle(int numberOfEnemies, int level, Character* player);
+	Battle(int numberOfEnemies, int level, Player* player);
 	~Battle();
 private:
 	std::list<Character*> Enemies;
 	std::vector<Character*> PlayerAndEnemies;
-	class Player* CurrentPlayer;
+	Player* CurrentPlayer;
 
 	// Time between each character turn
 	int WaitTime = 2;

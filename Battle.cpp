@@ -5,9 +5,9 @@
 #include <list>
 #include "Helpers.h"
 
-Battle::Battle(int numberOfEnemies, int level, Character* player)
+Battle::Battle(int numberOfEnemies, int level, Player* player)
 {
-	CurrentPlayer = dynamic_cast<Player*>(player);
+	CurrentPlayer = player;
 	int Index = 0;
 	while (Index < numberOfEnemies)
 	{
