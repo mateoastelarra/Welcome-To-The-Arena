@@ -30,7 +30,7 @@ void Player::ImprovePlayer()
         {
             std::cout << i + 1 << ")" << Options[i] << ". Current = " << *Stats[i] <<  std::endl;
         }
-        int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code
+        int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code and vector starts in 0
 
         if (ChosenItemIndex >= 0 && ChosenItemIndex < Options.size())
         {
@@ -46,6 +46,42 @@ void Player::ImprovePlayer()
     }
 }
 
+void Player::TakeTurn(Character* Other)
+{ 
+    if (IsDead) { return; }
+    int ChosenItemIndex;
+    while (true)
+    {
+        std::cout << "Your turn has come " << Name << ".What do you want to do ? " << std::endl;
+        std::cout << "1) Attack. " << std::endl;
+        std::cout << "2) Defend. " << std::endl;
+        std::cout << "3) Special Art. " << std::endl;
+
+        ChosenItemIndex = _getch() - '0'; // Because it returns ascII code and want exact option
+        if (ChosenItemIndex > 0 && ChosenItemIndex < 4)
+        {
+            break;
+        }
+        else
+        {
+            std::cout << "Please choose a valid option " << Name << std::endl;
+        }
+    } 
+
+    switch (ChosenItemIndex)
+    {
+        case 1:
+            Attack(Other);
+            break;
+        case 2:
+            Defend();
+            break;
+        case 3:
+            SpecialArt();
+            break;
+    }
+}
+
 std::string Player::ChooseCharacteristic(std::vector<std::string> Charasteristics, std::string Characteristic)
 {
     while (true)
@@ -55,7 +91,7 @@ std::string Player::ChooseCharacteristic(std::vector<std::string> Charasteristic
         {
             std::cout << i + 1 << ")" << Charasteristics[i] << "." << std::endl;
         }
-        int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code
+        int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code and vector starts in 0
 
         if (ChosenItemIndex >= 0 && ChosenItemIndex < Charasteristics.size())
         {

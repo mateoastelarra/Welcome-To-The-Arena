@@ -6,9 +6,10 @@ class Player : public Character
 public:
 	Player(int level);
 	void ImprovePlayer();
+	void TakeTurn(Character* Other);
 
 private:
-	std::string ChooseCharacteristic(std::vector<std::string> Charasteristics, std::string Characteristic);
+	std::string ChooseCharacteristic(std::vector<std::string> Characteristics, std::string Characteristic);
 	std::string ChooseName();
 };
 

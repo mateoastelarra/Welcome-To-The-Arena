@@ -27,10 +27,12 @@ void Character::Attack(Character* other)
 
 void Character::Defend()
 {
+	std::cout << "Defending." << std::endl;
 }
 
 void Character::SpecialArt()
 {
+	std::cout << "Casting Special Art." << std::endl;
 }
 
 void Character::Die()

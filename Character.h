@@ -26,6 +26,8 @@ protected:
 	int BaseArmor = 10;
 	int BaseInteligence = 10;
 
+	bool IsDead = false;
+
 	void SetBaseStatsByClass(std::string AClass);
 
 public:
@@ -53,7 +55,5 @@ public:
 	void Die();
 	void TakeDamage(int damage);
 	void const ShowStats();
-
-private:
-	bool IsDead = false;
+	
 };
