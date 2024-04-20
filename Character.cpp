@@ -27,7 +27,18 @@ void Character::Attack(Character* other)
 
 void Character::Defend()
 {
-	std::cout << "Defending." << std::endl;
+	IsDefending = true;
+	HitPoints += DefenseBonus;
+	std::cout << Name << " the " << Race << " is defending and gains " << DefenseBonus << "Hit Points." << std::endl;
+}
+
+void Character::BreakDefense()
+{
+	if (IsDefending)
+	{
+		IsDefending = false;
+		std::cout << Name << " the " << Race << " defense is broken." << std::endl;
+	}
 }
 
 void Character::SpecialArt()
@@ -43,7 +54,15 @@ void Character::Die()
 
 void Character::TakeDamage(int damage)
 {
-	HitPoints -= damage;
+	if (IsDefending)
+	{
+		HitPoints -= fmax(damage - Armor, 0);
+	}
+	else
+	{
+		HitPoints -= damage;
+	}
+	
 	if (HitPoints <= 0)
 	{
 		HitPoints = 0;

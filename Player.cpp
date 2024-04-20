@@ -11,11 +11,13 @@ Player::Player(int level) : Character()
 
     SetBaseStatsByClass(Class);
     Level = level;
-    HitPoints = BaseHitpoints + (rand() % 5 + 2) * Level;
+    MaxHitPoints = BaseHitpoints + (rand() % 5 + 2) * Level;
+    HitPoints = MaxHitPoints;
     Strength = BaseStrength + (rand() % 5 + 2) * Level;
     Armor = BaseArmor + (rand() % 5 + 2) * Level;
     Inteligence = BaseInteligence + (rand() % 5 + 2) * Level;
     BaseInitiative = (rand() % 5) * Level;
+    DefenseBonus = fmax((Armor + Inteligence) / 6, 1);
 
 }
 
@@ -24,8 +26,8 @@ void Player::ImprovePlayer()
     while (true)
     {
         std::cout << "The Battle is over, what do you want to Improve?" << std::endl;
-        std::vector<std::string> Options = { "Hitpoints", "Strength", "Armor", "Inteligence", "Initiative" };
-        std::vector<int*> Stats = { &HitPoints, &Strength, &Armor, &Inteligence, &BaseInitiative };
+        std::vector<std::string> Options = { "Max Hit Points", "Strength", "Armor", "Inteligence", "Initiative" };
+        std::vector<int*> Stats = { &MaxHitPoints, &Strength, &Armor, &Inteligence, &BaseInitiative };
         for (int i = 0; i < Options.size(); i++)
         {
             std::cout << i + 1 << ")" << Options[i] << ". Current = " << *Stats[i] <<  std::endl;
@@ -52,7 +54,7 @@ void Player::TakeTurn(Character* Other)
     int ChosenItemIndex;
     while (true)
     {
-        std::cout << "Your turn has come " << Name << ".What do you want to do ? " << std::endl;
+        std::cout << "Your turn has come " << Name << ". What do you want to do? " << std::endl;
         std::cout << "1) Attack. " << std::endl;
         std::cout << "2) Defend. " << std::endl;
         std::cout << "3) Special Art. " << std::endl;

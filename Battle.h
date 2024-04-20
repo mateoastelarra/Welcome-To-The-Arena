@@ -28,4 +28,5 @@ public:
 	void DecideOrderForBattle();
 	void FillPlayerAndEnemiesVector();
 	void ShowEnemies();
+	void ResetDefenses();
 };

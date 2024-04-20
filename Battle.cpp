@@ -91,11 +91,14 @@ void Battle::TakeRound()
 		}
 		Helpers::WaitForSeconds(WaitTime);
 	}
+
 	if (AnEnemyDied)
 	{
 		PlayerAndEnemies.clear();
 		FillPlayerAndEnemiesVector();
 	}
+
+	ResetDefenses();
 }
 
 void Battle::DecideInitiative()
@@ -148,5 +151,13 @@ void Battle::FillPlayerAndEnemiesVector()
 void Battle::ShowEnemies()
 {
 
+}
+
+void Battle::ResetDefenses()
+{
+	for (Character* character : PlayerAndEnemies)
+	{
+		character->BreakDefense();
+	}
 }
 

@@ -9,9 +9,11 @@ Enemy::Enemy(int level) : Character()
 	Race = Helpers::Races[rand() % Helpers::Races.size()];
 
 	SetBaseStatsByClass(Class);
-	HitPoints = BaseHitpoints + (rand() % 3 + 1) * level;
+	MaxHitPoints = BaseHitpoints + (rand() % 3 + 1) * level;
+	HitPoints = MaxHitPoints;
 	Strength = BaseStrength + (rand() % 3 + 1) * level;
 	Armor = BaseArmor + (rand() % 3 + 1) * level;
 	Inteligence = BaseInteligence + (rand() % 3 + 1) * level;
 	BaseInitiative = (rand() % 3) * level;
+	DefenseBonus = fmax((Armor + Inteligence) / 6, 1);
 }

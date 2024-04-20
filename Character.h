@@ -13,12 +13,14 @@ protected:
 	std::string Name;
 	std::string Class;
 	std::string Race;
+	int MaxHitPoints;
 	int HitPoints;
 	int Strength;
 	int Armor;
 	int BaseInitiative;
 	int Initiative;
 	int Inteligence;
+	int DefenseBonus;
 	int Level;
 
 	int BaseHitpoints = 10;
@@ -27,6 +29,8 @@ protected:
 	int BaseInteligence = 10;
 
 	bool IsDead = false;
+	bool IsDefending = false;
+
 
 	void SetBaseStatsByClass(std::string AClass);
 
@@ -51,6 +55,7 @@ public:
 	// Other methods
 	void Attack(Character* other);
 	void Defend();
+	void BreakDefense();
 	void SpecialArt();
 	void Die();
 	void TakeDamage(int damage);
