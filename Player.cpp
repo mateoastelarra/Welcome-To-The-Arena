@@ -4,7 +4,6 @@
 
 Player::Player(int level) : Character()
 {
-	Helpers::AskYesOrNoQuestion("Hello Traveller. Are you ready to fight in the Arena?");
     Name = ChooseName();
 	Class = ChooseCharacteristic(Helpers::Classes, "class");
 	Race = ChooseCharacteristic(Helpers::Races, "race");
@@ -46,6 +45,19 @@ void Player::ImprovePlayer()
             std::cout << "Please choose a valid option " << Name << std::endl;
         }
     }
+}
+
+void Player::LevelUp()
+{
+    IsDead = false;
+    Level += 1;
+    MaxHitPoints += (rand() % 3 + 1) * Level;
+    HitPoints = MaxHitPoints;
+    Strength += (rand() % 3 + 2) * Level;
+    Armor += (rand() % 3 + 2) * Level;
+    Inteligence += (rand() % 3 + 2) * Level;
+    BaseInitiative += (rand() % 3 + 2) * Level;
+    DefenseBonus += (rand() % 3 + 2) * Level;
 }
 
 void Player::TakeTurn(Character* Other)

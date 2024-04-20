@@ -29,7 +29,7 @@ void Character::Defend()
 {
 	IsDefending = true;
 	HitPoints += DefenseBonus;
-	std::cout << Name << " the " << Race << " is defending and gains " << DefenseBonus << "Hit Points." << std::endl;
+	std::cout << Name << " the " << Race << " is defending and gains " << DefenseBonus << " hit points." << std::endl;
 }
 
 void Character::BreakDefense()

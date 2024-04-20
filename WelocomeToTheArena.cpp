@@ -11,24 +11,41 @@ int main()
     /* initialize random seed: */
     srand(time(NULL));
     
-    Player* PlayerPtr = new Player(1);
+    bool WantToPlay = Helpers::AskYesOrNoQuestion("Hello Traveller. Are you ready to fight in the Arena?");
+    bool KeepCharacter = false;
+    Player* PlayerPtr = nullptr;
     Battle* NewBattle = nullptr;
-    int NumberOfEnemies = 1;
 
-    while (PlayerPtr->GetIsDead() == false)
+    while (WantToPlay)
     {
-       std::cout << "Battle number " << NumberOfEnemies << std::endl;
-       NewBattle = new Battle(NumberOfEnemies, 1, PlayerPtr);
-       NumberOfEnemies++;
+        if (!KeepCharacter)
+        {
+            PlayerPtr = new Player(1);
+        }
+        else
+        {
+            PlayerPtr->LevelUp();
+        }
+       
+        int NumberOfEnemies = 1;
+        while (PlayerPtr->GetIsDead() == false)
+        {
+            std::cout << "Battle number " << NumberOfEnemies << std::endl;
+            NewBattle = new Battle(NumberOfEnemies, 1, PlayerPtr);
+            NumberOfEnemies++;
+        }
+
+        WantToPlay = Helpers::AskYesOrNoQuestion("Do you want to play again?");
+        KeepCharacter = Helpers::AskYesOrNoQuestion("Do you want to continue with this character and gain a level?");
     }
-    
     // Deallocate memory for dynamically allocated objects
-    delete PlayerPtr;
+    if (PlayerPtr != nullptr)
+        delete PlayerPtr;
+    
+    
     if (NewBattle != nullptr)
-    {
         delete NewBattle;
-    }
-
+    
     return 0;
 }
 

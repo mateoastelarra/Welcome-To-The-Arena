@@ -6,6 +6,7 @@ class Player : public Character
 public:
 	Player(int level);
 	void ImprovePlayer();
+	void LevelUp();
 	void TakeTurn(Character* Other);
 
 private:
