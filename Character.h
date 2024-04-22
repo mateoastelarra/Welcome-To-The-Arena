@@ -56,7 +56,7 @@ public:
 	void Attack(Character* other);
 	void Defend();
 	void BreakDefense();
-	void SpecialArt();
+	void SpecialArt(std::vector<Character*> others, std::string castingSpeech, int waitTime);
 	void Die();
 	void TakeDamage(int damage);
 	void const ShowStats();

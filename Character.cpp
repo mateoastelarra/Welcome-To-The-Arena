@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "Helpers.h"
 #include <cmath>
 
 
@@ -13,15 +14,6 @@ void Character::Attack(Character* other)
 	std::cout << Name << " the " << Race << " attacks " << other->GetName() << ":" << std::endl;
 	int Damage = rand() % 20 + 1;
 	Damage = fmax(Damage + Strength - other->GetArmor(), 0);
-
-	if (Damage > 0)
-	{
-		std::cout <<"Makes " << Damage << " Damage." << std::endl;
-	}
-	else
-	{
-		std::cout << "Misses the hit. " << other->GetName() << " Gets no Damage." << std::endl;
-	}
 	other->TakeDamage(Damage);
 }
 
@@ -41,9 +33,18 @@ void Character::BreakDefense()
 	}
 }
 
-void Character::SpecialArt()
+void Character::SpecialArt(std::vector<Character*> others, std::string castingSpeech, int waitTime)
 {
 	std::cout << "Casting Special Art." << std::endl;
+	Helpers::WaitForSeconds(waitTime);
+	for (Character* other: others)
+	{
+		if (IsDead or other->GetIsDead()) { continue; }
+		std::cout << Name << " the " << Race << " " << castingSpeech << " to " << other->GetName() << ":" << std::endl;
+		int Damage = rand() % 20 + 1;
+		Damage = fmax(Damage + Inteligence - other->GetArmor(), 0);
+		other->TakeDamage(Damage);
+	}
 }
 
 void Character::Die()
@@ -56,11 +57,18 @@ void Character::TakeDamage(int damage)
 {
 	if (IsDefending)
 	{
+		std::cout << Name << " is defending." << std::endl;
 		HitPoints -= fmax(damage - Armor, 0);
+		std::cout << "Makes " << fmax(damage - Armor, 0) << " damage." << std::endl;
+	}
+	else if (damage > 0)
+	{
+		std::cout << "Makes " << damage << " damage." << std::endl;
+		HitPoints -= damage;
 	}
 	else
 	{
-		HitPoints -= damage;
+		std::cout << "Misses the hit. " << Name << " Gets no damage." << std::endl;
 	}
 	
 	if (HitPoints <= 0)

@@ -7,7 +7,7 @@ public:
 	Player(int level);
 	void ImprovePlayer();
 	void LevelUp();
-	void TakeTurn(Character* Other);
+	void TakeTurn(Character* Other, std::vector<Character*> Characters);
 
 private:
 	std::string ChooseCharacteristic(std::vector<std::string> Characteristics, std::string Characteristic);
