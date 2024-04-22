@@ -60,7 +60,7 @@ void Player::LevelUp()
     DefenseBonus += (rand() % 3 + 2) * Level;
 }
 
-void Player::TakeTurn(Character* Other, std::list<Character*> Characters)
+void Player::TakeTurn(std::list<Character*> Characters)
 { 
     if (IsDead) { return; }
     int ChosenItemIndex;
@@ -85,7 +85,7 @@ void Player::TakeTurn(Character* Other, std::list<Character*> Characters)
     switch (ChosenItemIndex)
     {
         case 1:
-            Attack(Other);
+            PlayerAttack(Characters);
             break;
         case 2:
             Defend();
@@ -125,4 +125,24 @@ std::string Player::ChooseName()
     std::cin >> PlayerName;
 
     return PlayerName;
+}
+
+void Player::PlayerAttack(std::list<Character*> Characters)
+{
+    std::cout << "Who do you want to attack?" << std::endl;
+
+    std::vector<Character*> Enemies;
+    for (Character* character : Characters)
+    {
+        Enemies.push_back(character);
+    }
+
+    
+    for (int i = 0; i < Enemies.size(); i++)
+    {
+        std::cout << i + 1 << ")" << Enemies[i]->GetName() << " the " << Enemies[i]->GetRace() << " has " << Enemies[i]->GetHP() << " hit points." << std::endl;
+    }
+
+    int ChosenItemIndex = _getch() - '0' - 1; // Because it returns ascII code and vector starts in 0
+    Attack(Enemies[ChosenItemIndex]);
 }
