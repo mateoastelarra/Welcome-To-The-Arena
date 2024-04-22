@@ -83,11 +83,7 @@ void Battle::TakeRound()
 			}
 			//ActiveCharacter->Attack(PlayerAndEnemies[IndexToAttack]);
 			CurrentPlayer->TakeTurn(PlayerAndEnemies[IndexToAttack], Enemies);
-			if (PlayerAndEnemies[IndexToAttack]->GetIsDead())
-			{
-				Enemies.remove(PlayerAndEnemies[IndexToAttack]);
-				AnEnemyDied = true;	
-			}
+			AnEnemyDied = CheckDeaths();
 		}
 		Helpers::WaitForSeconds(WaitTime);
 	}
@@ -99,6 +95,28 @@ void Battle::TakeRound()
 	}
 
 	ResetDefenses();
+}
+
+bool Battle::CheckDeaths()
+{
+	bool AnEnemyDied = false;
+	std::list<Character*> EnemiesToRemove;
+
+	for (Character* enemy : Enemies)
+	{
+		if (enemy->GetIsDead())
+		{
+			EnemiesToRemove.push_back(enemy);
+			AnEnemyDied = true;
+		}
+	}
+
+	for (Character* enemyToRemove : EnemiesToRemove)
+	{
+		Enemies.remove(enemyToRemove);
+	}
+
+	return AnEnemyDied;
 }
 
 void Battle::DecideInitiative()

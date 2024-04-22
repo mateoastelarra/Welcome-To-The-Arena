@@ -19,14 +19,16 @@ private:
 
 	// Time between each character turn
 	int WaitTime = 2;
+	bool CheckDeaths();
+	void DecideInitiative();
+	void DecideOrderForBattle();
+	void FillPlayerAndEnemiesVector();
+	void ResetDefenses();
+	void TakeRound();
 
 public:
 	void StartBattle();
 	void EndBattle();
-	void TakeRound();
-	void DecideInitiative();
-	void DecideOrderForBattle();
-	void FillPlayerAndEnemiesVector();
 	void ShowEnemies();
-	void ResetDefenses();
+	
 };

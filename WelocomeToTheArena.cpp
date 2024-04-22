@@ -36,7 +36,10 @@ int main()
         }
 
         WantToPlay = Helpers::AskYesOrNoQuestion("Do you want to play again?");
-        KeepCharacter = Helpers::AskYesOrNoQuestion("Do you want to continue with this character and gain a level?");
+        if (WantToPlay)
+        {
+            KeepCharacter = Helpers::AskYesOrNoQuestion("Do you want to continue with this character and gain a level?");
+        }    
     }
     // Deallocate memory for dynamically allocated objects
     if (PlayerPtr != nullptr)
