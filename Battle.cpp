@@ -82,7 +82,7 @@ void Battle::TakeRound()
 				IndexToAttack = rand() % PlayerAndEnemies.size();
 			}
 			//ActiveCharacter->Attack(PlayerAndEnemies[IndexToAttack]);
-			CurrentPlayer->TakeTurn(PlayerAndEnemies[IndexToAttack], PlayerAndEnemies);
+			CurrentPlayer->TakeTurn(PlayerAndEnemies[IndexToAttack], Enemies);
 			if (PlayerAndEnemies[IndexToAttack]->GetIsDead())
 			{
 				Enemies.remove(PlayerAndEnemies[IndexToAttack]);

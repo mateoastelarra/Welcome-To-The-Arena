@@ -60,7 +60,7 @@ void Player::LevelUp()
     DefenseBonus += (rand() % 3 + 2) * Level;
 }
 
-void Player::TakeTurn(Character* Other, std::vector<Character*> Characters)
+void Player::TakeTurn(Character* Other, std::list<Character*> Characters)
 { 
     if (IsDead) { return; }
     int ChosenItemIndex;
@@ -91,7 +91,7 @@ void Player::TakeTurn(Character* Other, std::vector<Character*> Characters)
             Defend();
             break;
         case 3:
-            SpecialArt(Characters, "Hello", 1);
+            SpecialArt(Characters, SpecialArtSpeech, 1);
             break;
     }
 }

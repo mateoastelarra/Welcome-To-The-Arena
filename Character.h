@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <list>
 
 class Character
 {
@@ -31,6 +32,7 @@ protected:
 	bool IsDead = false;
 	bool IsDefending = false;
 
+	std::string SpecialArtSpeech;
 
 	void SetBaseStatsByClass(std::string AClass);
 
@@ -56,7 +58,7 @@ public:
 	void Attack(Character* other);
 	void Defend();
 	void BreakDefense();
-	void SpecialArt(std::vector<Character*> others, std::string castingSpeech, int waitTime);
+	void SpecialArt(std::list<Character*> others, std::string castingSpeech, int waitTime);
 	void Die();
 	void TakeDamage(int damage);
 	void const ShowStats();

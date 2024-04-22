@@ -33,14 +33,14 @@ void Character::BreakDefense()
 	}
 }
 
-void Character::SpecialArt(std::vector<Character*> others, std::string castingSpeech, int waitTime)
+void Character::SpecialArt(std::list<Character*> others, std::string castingSpeech, int waitTime)
 {
 	std::cout << "Casting Special Art." << std::endl;
 	Helpers::WaitForSeconds(waitTime);
 	for (Character* other: others)
 	{
 		if (IsDead or other->GetIsDead()) { continue; }
-		std::cout << Name << " the " << Race << " " << castingSpeech << " to " << other->GetName() << ":" << std::endl;
+		std::cout << Name << " the " << Race << castingSpeech << other->GetName() << ":" << std::endl;
 		int Damage = rand() % 20 + 1;
 		Damage = fmax(Damage + Inteligence - other->GetArmor(), 0);
 		other->TakeDamage(Damage);
@@ -97,6 +97,7 @@ void Character::SetBaseStatsByClass(std::string AClass)
 		BaseStrength = 12;
 		BaseArmor = 10;
 		BaseInteligence = 2;
+		SpecialArtSpeech = " shouts with might and throws a punch at ";
 	}
 	else if (AClass == "Wizard")
 	{
@@ -104,19 +105,23 @@ void Character::SetBaseStatsByClass(std::string AClass)
 		BaseStrength = 8;
 		BaseArmor = 9;
 		BaseInteligence = 16;
+		SpecialArtSpeech = " throws a fireball and impacts ";
 	}
 	else if (AClass == "Druid")
 	{
 		BaseHitpoints = 12;
 		BaseStrength = 11;
 		BaseArmor = 12;
-		BaseInteligence = 7;
+		BaseInteligence = 12;
+		SpecialArtSpeech = " turns into a wolf and attacks ";
+
 	}
 	else if (AClass == "Palladin")
 	{
 		BaseHitpoints = 10;
 		BaseStrength = 10;
 		BaseArmor = 12;
-		BaseInteligence = 10;
+		BaseInteligence = 9;
+		SpecialArtSpeech = " fills the sword with faith and attacks ";
 	}
 }
