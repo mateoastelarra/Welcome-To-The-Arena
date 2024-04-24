@@ -76,12 +76,6 @@ void Battle::TakeRound()
 		}
 		else
 		{
-			//int IndexToAttack = 0;
-			//while (IndexToAttack == i)
-			//{
-			//	IndexToAttack = rand() % PlayerAndEnemies.size();
-			//}
-			//ActiveCharacter->Attack(PlayerAndEnemies[IndexToAttack]);
 			CurrentPlayer->TakeTurn(Enemies);
 			AnEnemyDied = CheckDeaths();
 		}
@@ -164,11 +158,6 @@ void Battle::FillPlayerAndEnemiesVector()
 	{
 		PlayerAndEnemies.push_back(character);
 	}
-}
-
-void Battle::ShowEnemies()
-{
-
 }
 
 void Battle::ResetDefenses()

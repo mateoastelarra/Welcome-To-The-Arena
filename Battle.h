@@ -29,6 +29,5 @@ private:
 public:
 	void StartBattle();
 	void EndBattle();
-	void ShowEnemies();
 	
 };
