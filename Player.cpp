@@ -50,6 +50,7 @@ void Player::ImprovePlayer()
 void Player::LevelUp()
 {
     IsDead = false;
+    SpecialArtsRemaining = 3;
     Level += 1;
     MaxHitPoints += (rand() % 3 + 1) * Level;
     HitPoints = MaxHitPoints;
@@ -69,16 +70,20 @@ void Player::TakeTurn(std::list<Character*> Characters)
         std::cout << "Your turn has come " << Name << ". What do you want to do? " << std::endl;
         std::cout << "1) Attack. " << std::endl;
         std::cout << "2) Defend. " << std::endl;
-        std::cout << "3) Special Art. " << std::endl;
+        std::cout << "3) Special Art. "<< "(" << SpecialArtsRemaining << " remaining)" << std::endl;
 
         ChosenItemIndex = _getch() - '0'; // Because it returns ascII code and want exact option
-        if (ChosenItemIndex > 0 && ChosenItemIndex < 4)
+        if (ChosenItemIndex == 3 && SpecialArtsRemaining <= 0)
+        {
+            std::cout << "You used all your special arts. Please choose a valid option " << std::endl;
+        }
+        else if (ChosenItemIndex > 0 && ChosenItemIndex < 4)
         {
             break;
         }
         else
         {
-            std::cout << "Please choose a valid option " << Name << std::endl;
+            std::cout << "Please choose a valid option. " << Name << std::endl;
         }
     } 
 
@@ -92,6 +97,7 @@ void Player::TakeTurn(std::list<Character*> Characters)
             break;
         case 3:
             SpecialArt(Characters, SpecialArtSpeech, 1);
+            SpecialArtsRemaining--;
             break;
     }
 }

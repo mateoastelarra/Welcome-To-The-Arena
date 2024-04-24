@@ -11,6 +11,7 @@ public:
 	void TakeTurn(std::list<Character*> Characters);
 
 private:
+	int SpecialArtsRemaining = 3;
 	std::string ChooseCharacteristic(std::vector<std::string> Characteristics, std::string Characteristic);
 	std::string ChooseName();
 	void PlayerAttack(std::list<Character*> Characters);
