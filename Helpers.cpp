@@ -2,12 +2,18 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <cstdlib> 
 #include <conio.h> // For _kbhit and _getch
 
 
 const std::vector<std::string> Helpers::Classes = { "Warrior", "Wizard", "Druid", "Palladin" };
 const std::vector<std::string> Helpers::Races = { "Elf", "Human", "Dwarf", "Halfling", "Orc", "Goblin" };
 const std::vector<std::string> Helpers::Names = { "William", "Joe", "Argos", "Anna", "Julia", "Karen", "Michael", "Robert", "Walter", "Kate", "Leo", "Cristina" };
+
+void Helpers::ClearWindow()
+{
+    system("cls");
+}
 
 void Helpers::WaitForSeconds(int Seconds)
 {

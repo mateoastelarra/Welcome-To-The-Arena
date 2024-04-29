@@ -12,6 +12,7 @@ int main()
     srand(time(NULL));
     
     bool WantToPlay = Helpers::AskYesOrNoQuestion("Hello Traveller. Are you ready to fight in the Arena?");
+    Helpers::ClearWindow();
     bool KeepCharacter = false;
     Player* PlayerPtr = nullptr;
     Battle* NewBattle = nullptr;
@@ -21,10 +22,12 @@ int main()
         if (!KeepCharacter)
         {
             PlayerPtr = new Player(1);
+            Helpers::ClearWindow();
         }
         else
         {
             PlayerPtr->LevelUp();
+            Helpers::ClearWindow();
         }
        
         int NumberOfEnemies = 1;

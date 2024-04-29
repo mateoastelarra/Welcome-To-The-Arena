@@ -38,7 +38,8 @@ void Battle::StartBattle()
 		else
 		{
 			Helpers::WaitForPlayerResponse("for next round.");
-		}	
+		}
+		Helpers::ClearWindow();
 		std::cout << "Round " << round << " starts:" << std::endl;
 		Helpers::WaitForSeconds(WaitTime);
 		TakeRound();
@@ -56,7 +57,8 @@ void Battle::EndBattle()
 	else
 	{
 		std::cout << "YOU DEFEATED YOUR ENEMIES." << std::endl;
-		Helpers::WaitForSeconds(WaitTime);
+		Helpers::WaitForPlayerResponse("to continue.");
+		Helpers::ClearWindow();
 		CurrentPlayer->ImprovePlayer();
 	}
 }

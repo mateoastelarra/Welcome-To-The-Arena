@@ -4,20 +4,26 @@
 
 Player::Player(int level) : Character()
 {
-    Name = ChooseName();
-	Class = ChooseCharacteristic(Helpers::Classes, "class");
-	Race = ChooseCharacteristic(Helpers::Races, "race");
+    bool OkPlayer = false;
+    while (!OkPlayer)
+    {
+        Name = ChooseName();
+        Class = ChooseCharacteristic(Helpers::Classes, "class");
+        Race = ChooseCharacteristic(Helpers::Races, "race");
 
-    SetBaseStatsByClass(Class);
-    Level = level;
-    MaxHitPoints = BaseHitpoints + (rand() % 5 + 2) * Level;
-    HitPoints = MaxHitPoints;
-    Strength = BaseStrength + (rand() % 5 + 2) * Level;
-    Armor = BaseArmor + (rand() % 5 + 2) * Level;
-    Inteligence = BaseInteligence + (rand() % 5 + 2) * Level;
-    BaseInitiative = (rand() % 5) * Level;
-    DefenseBonus = fmax((Armor + Inteligence) / 6, 1);
-
+        SetBaseStatsByClass(Class);
+        Level = level;
+        MaxHitPoints = BaseHitpoints + (rand() % 5 + 2) * Level;
+        HitPoints = MaxHitPoints;
+        Strength = BaseStrength + (rand() % 5 + 2) * Level;
+        Armor = BaseArmor + (rand() % 5 + 2) * Level;
+        Inteligence = BaseInteligence + (rand() % 5 + 2) * Level;
+        BaseInitiative = (rand() % 5) * Level;
+        DefenseBonus = fmax((Armor + Inteligence) / 6, 1);
+        std::cout << "You are " << Name << " the " << Class << " " << Race << std::endl;
+        OkPlayer = Helpers::AskYesOrNoQuestion("Is That Ok?");
+    }
+    
 }
 
 void Player::ImprovePlayer()
@@ -38,6 +44,8 @@ void Player::ImprovePlayer()
             *Stats[ChosenItemIndex] += (rand() % 4 + 1);
             std::cout << "Congrats!!" << std::endl;
             std::cout << "Your " << Options[ChosenItemIndex] << " is now " << *Stats[ChosenItemIndex] << std::endl;
+            Helpers::WaitForPlayerResponse("to continue.");
+            Helpers::ClearWindow();
             return;
         }
         else
