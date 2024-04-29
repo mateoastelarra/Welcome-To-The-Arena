@@ -12,6 +12,7 @@ Player::Player(int level) : Character()
         Race = ChooseCharacteristic(Helpers::Races, "race");
 
         SetBaseStatsByClass(Class);
+        SetBonusStatsByRace(Race);
         Level = level;
         MaxHitPoints = BaseHitpoints + (rand() % 5 + 2) * Level;
         HitPoints = MaxHitPoints;

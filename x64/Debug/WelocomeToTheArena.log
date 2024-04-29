@@ -1,5 +1,13 @@
 ﻿  Battle.cpp
+  Character.cpp
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Character.cpp(16,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Character.cpp(45,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Character.cpp(61,20): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+  Enemy.cpp
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Enemy.cpp(19,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Player.cpp
-C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Player.cpp(22,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\Player.cpp(23,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  WelocomeToTheArena.cpp
+C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\WelocomeToTheArena.cpp(12,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
   WelocomeToTheArena.vcxproj -> C:\Users\Ryzen\OneDrive\Documentos\Game Dev\UTN\C++ para videojuegos\Welcome-To-The-Arena\x64\Debug\WelocomeToTheArena.exe

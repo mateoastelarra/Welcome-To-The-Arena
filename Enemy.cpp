@@ -9,6 +9,7 @@ Enemy::Enemy(int level) : Character()
 	Race = Helpers::Races[rand() % Helpers::Races.size()];
 
 	SetBaseStatsByClass(Class);
+	SetBonusStatsByRace(Race);
 	MaxHitPoints = BaseHitpoints + (rand() % 3 + 1) * level;
 	HitPoints = MaxHitPoints;
 	Strength = BaseStrength + (rand() % 3 + 1) * level;

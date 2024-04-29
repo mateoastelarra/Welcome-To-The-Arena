@@ -125,3 +125,42 @@ void Character::SetBaseStatsByClass(std::string AClass)
 		SpecialArtSpeech = " fills the sword with faith and attacks ";
 	}
 }
+
+void Character::SetBonusStatsByRace(std::string ARace)
+{
+	if (ARace == "Elf")
+	{
+		BaseInteligence += 2;
+		BaseArmor -= 1;
+		BaseInitiative += 1;
+	}
+	else if (ARace == "Human")
+	{
+		BaseHitpoints += 1;
+		BaseStrength += 1;
+		BaseArmor += 1;
+	}
+	else if (ARace== "Dwarf")
+	{
+		BaseStrength += 3;
+
+	}
+	else if (ARace== "Halfling")
+	{
+		BaseArmor += 1;
+		BaseInteligence += 1;
+		BaseInitiative += 2;
+	}
+	else if (ARace == "Orc")
+	{
+		BaseStrength += 2;
+		BaseArmor += 2;
+		BaseInteligence -= 2;
+	}
+	else if (ARace == "Goblin")
+	{
+		BaseHitpoints += 1;
+		BaseStrength += 1;
+		BaseInitiative += 1;
+	}
+}

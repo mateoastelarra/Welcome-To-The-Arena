@@ -53,6 +53,9 @@ void Battle::EndBattle()
 	if (CurrentPlayer->GetIsDead())
 	{
 		std::cout << "GAME OVER" << std::endl;
+		Helpers::WaitForSeconds(WaitTime);
+		Helpers::WaitForPlayerResponse("to continue.");
+		Helpers::ClearWindow();
 	}
 	else
 	{

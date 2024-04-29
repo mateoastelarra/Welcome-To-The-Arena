@@ -18,7 +18,7 @@ private:
 	Player* CurrentPlayer;
 
 	// Time between each character turn
-	int WaitTime = 2;
+	int WaitTime = 1;
 	bool CheckDeaths();
 	void DecideInitiative();
 	void DecideOrderForBattle();

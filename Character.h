@@ -35,6 +35,7 @@ protected:
 	std::string SpecialArtSpeech;
 
 	void SetBaseStatsByClass(std::string AClass);
+	void SetBonusStatsByRace(std::string ARace);
 
 public:
 
